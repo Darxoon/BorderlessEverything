@@ -77,7 +77,8 @@ namespace BorderlessMinecraft
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label6 = new System.Windows.Forms.Label();
+            this.filterBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ToolTipContextMenu.SuspendLayout();
             this.SettingsMenu.SuspendLayout();
@@ -86,18 +87,17 @@ namespace BorderlessMinecraft
             // debugInstructionsLabel
             // 
             this.debugInstructionsLabel.AutoSize = true;
-            this.debugInstructionsLabel.Location = new System.Drawing.Point(66, 83);
+            this.debugInstructionsLabel.Location = new System.Drawing.Point(100, 80);
             this.debugInstructionsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.debugInstructionsLabel.Name = "debugInstructionsLabel";
-            this.debugInstructionsLabel.Size = new System.Drawing.Size(409, 13);
+            this.debugInstructionsLabel.Size = new System.Drawing.Size(353, 13);
             this.debugInstructionsLabel.TabIndex = 1;
-            this.debugInstructionsLabel.Text = "Select the session of Minecraft you want to make borderless and click \'Go Borderl" +
-    "ess\'";
+            this.debugInstructionsLabel.Text = "Select the program you want to make borderless and click \'Go Borderless\'";
             this.debugInstructionsLabel.Click += new System.EventHandler(this.debugInstructionsLabel_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(378, 209);
+            this.button1.Location = new System.Drawing.Point(378, 229);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 28);
@@ -109,7 +109,7 @@ namespace BorderlessMinecraft
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(69, 117);
+            this.listBox1.Location = new System.Drawing.Point(69, 137);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(304, 121);
             this.listBox1.TabIndex = 4;
@@ -117,7 +117,7 @@ namespace BorderlessMinecraft
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(378, 117);
+            this.button2.Location = new System.Drawing.Point(378, 137);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(97, 28);
             this.button2.TabIndex = 5;
@@ -127,7 +127,7 @@ namespace BorderlessMinecraft
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(378, 147);
+            this.button3.Location = new System.Drawing.Point(378, 167);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(97, 29);
             this.button3.TabIndex = 6;
@@ -147,7 +147,7 @@ namespace BorderlessMinecraft
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(19, 278);
+            this.checkBox1.Location = new System.Drawing.Point(19, 298);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(75, 17);
             this.checkBox1.TabIndex = 8;
@@ -157,7 +157,7 @@ namespace BorderlessMinecraft
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(130, 295);
+            this.textBox1.Location = new System.Drawing.Point(130, 315);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(70, 20);
             this.textBox1.TabIndex = 9;
@@ -166,7 +166,7 @@ namespace BorderlessMinecraft
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(130, 279);
+            this.label1.Location = new System.Drawing.Point(130, 299);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 10;
@@ -177,7 +177,7 @@ namespace BorderlessMinecraft
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(203, 279);
+            this.label2.Location = new System.Drawing.Point(203, 299);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 11;
@@ -187,7 +187,7 @@ namespace BorderlessMinecraft
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(279, 279);
+            this.label3.Location = new System.Drawing.Point(279, 299);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 12;
@@ -197,7 +197,7 @@ namespace BorderlessMinecraft
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(355, 279);
+            this.label4.Location = new System.Drawing.Point(355, 299);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 13;
@@ -206,7 +206,7 @@ namespace BorderlessMinecraft
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(206, 295);
+            this.textBox2.Location = new System.Drawing.Point(206, 315);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(70, 20);
             this.textBox2.TabIndex = 14;
@@ -214,7 +214,7 @@ namespace BorderlessMinecraft
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(282, 295);
+            this.textBox3.Location = new System.Drawing.Point(282, 315);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(70, 20);
             this.textBox3.TabIndex = 15;
@@ -222,7 +222,7 @@ namespace BorderlessMinecraft
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(358, 295);
+            this.textBox4.Location = new System.Drawing.Point(358, 315);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(70, 20);
             this.textBox4.TabIndex = 16;
@@ -231,7 +231,7 @@ namespace BorderlessMinecraft
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(69, 245);
+            this.label5.Location = new System.Drawing.Point(69, 265);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 13);
             this.label5.TabIndex = 17;
@@ -239,7 +239,7 @@ namespace BorderlessMinecraft
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(178, 242);
+            this.textBox5.Location = new System.Drawing.Point(178, 262);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(195, 20);
             this.textBox5.TabIndex = 18;
@@ -247,7 +247,7 @@ namespace BorderlessMinecraft
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(490, 282);
+            this.linkLabel1.Location = new System.Drawing.Point(490, 80);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(29, 13);
             this.linkLabel1.TabIndex = 19;
@@ -257,7 +257,7 @@ namespace BorderlessMinecraft
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(378, 178);
+            this.button4.Location = new System.Drawing.Point(378, 198);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(97, 29);
             this.button4.TabIndex = 20;
@@ -313,8 +313,7 @@ namespace BorderlessMinecraft
             this.toolStripMenuItem2,
             this.toolStripMenuItem3,
             this.toolStripMenuItem4,
-            this.toolStripMenuItem5,
-            this.toolStripMenuItem6});
+            this.toolStripMenuItem5});
             this.Settings.Name = "Settings";
             this.Settings.Size = new System.Drawing.Size(61, 20);
             this.Settings.Text = "Settings";
@@ -356,19 +355,30 @@ namespace BorderlessMinecraft
             this.toolStripMenuItem5.Text = "Preserve Taskbar";
             this.toolStripMenuItem5.ToolTipText = "The taskbar will be visible below Minecraft";
             // 
-            // toolStripMenuItem6
+            // label6
             // 
-            this.toolStripMenuItem6.CheckOnClick = true;
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(187, 22);
-            this.toolStripMenuItem6.Text = "Show All Clients";
-            this.toolStripMenuItem6.ToolTipText = "Shows non-vanilla MC clients, but may show other Java applications as well";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(69, 115);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Filter:";
+            // 
+            // filterBox
+            // 
+            this.filterBox.Location = new System.Drawing.Point(107, 111);
+            this.filterBox.Name = "filterBox";
+            this.filterBox.Size = new System.Drawing.Size(266, 20);
+            this.filterBox.TabIndex = 25;
+            this.filterBox.TextChanged += new System.EventHandler(this.filterBox_TextChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(543, 322);
+            this.ClientSize = new System.Drawing.Size(543, 349);
+            this.Controls.Add(this.filterBox);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.SettingsMenu);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.linkLabel1);
@@ -394,7 +404,7 @@ namespace BorderlessMinecraft
             this.MainMenuStrip = this.SettingsMenu;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.Text = "Borderless Minecraft 1.3.0";
+            this.Text = "Borderless Everything";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ToolTipContextMenu.ResumeLayout(false);
             this.SettingsMenu.ResumeLayout(false);
@@ -435,7 +445,8 @@ namespace BorderlessMinecraft
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem ContextMenuSettings;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox filterBox;
     }
 }
 

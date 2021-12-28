@@ -74,7 +74,6 @@ namespace BorderlessMinecraft
             toolStripMenuItem3.Checked = Config.MinimizeToTray;
             toolStripMenuItem4.Checked = Config.AutomaticBorderless;
             toolStripMenuItem5.Checked = Config.PreserveTaskBar;
-            toolStripMenuItem6.Checked = Config.ShowAllClients;
 
             ProcessMonitor = new ProcessMonitor(); //create the process monitor
             ProcessMonitor.OnJavaAppStarted += ProcessMonitor_OnJavaAppStarted; //attach events
@@ -94,7 +93,6 @@ namespace BorderlessMinecraft
             toolStripMenuItem3.CheckedChanged += MinimizeToTrayItem_CheckedChanged;
             toolStripMenuItem4.CheckedChanged += AutoBorderlessItem_CheckedChanged;
             toolStripMenuItem5.CheckedChanged += PreserveTaskBarItem_CheckedChanged;
-            toolStripMenuItem6.CheckedChanged += ShowAllClientsItem_CheckedChanged;
 
             if (Config.StartMinimized && IsAutoStarted()) //ensure the app has autostarted and minimize to tray is enabled. This ensures normal starts will not be minimized
             {
@@ -164,7 +162,6 @@ namespace BorderlessMinecraft
                 ProcessMonitor.Stop();
         }
         private void PreserveTaskBarItem_CheckedChanged(object sender, EventArgs e) => Config.PreserveTaskBar = ((ToolStripMenuItem)sender).Checked;
-        private void ShowAllClientsItem_CheckedChanged(object sender, EventArgs e) => Config.ShowAllClients = ((ToolStripMenuItem)sender).Checked;
 
         private void Exit_Click(object sender, EventArgs e) => Close();
 
@@ -175,14 +172,7 @@ namespace BorderlessMinecraft
             button3.Enabled = false; //disable the button by default
             button4.Enabled = false; //disable the button by default
 
-            if (Config.ShowAllClients) //if the checkbox is checked, no title filtering will occur
-            {
-                minecraftProcesses = GetProcesses(renamedProcesses);
-            }
-            else //if not, filter titles by the word "minecraft"
-            {
-                minecraftProcesses = GetProcesses(renamedProcesses, "Minecraft");
-            }
+            minecraftProcesses = GetProcesses(renamedProcesses, filterBox.Text);
 
             foreach (Process proc in minecraftProcesses)
             {
@@ -195,10 +185,8 @@ namespace BorderlessMinecraft
         /// </summary>
         private void AddProcessesThreadSafe()
         {
-            Invoke(new MethodInvoker(delegate () //sync back to UI thread https://stackoverflow.com/a/6691629/14024210
-            {
-                AddProcesses();
-            }));
+            //sync back to UI thread https://stackoverflow.com/a/6691629/14024210
+            Invoke(new MethodInvoker(AddProcesses));
         }
 
         private void debugInstructionsLabel_Click(object sender, EventArgs e)
@@ -407,12 +395,10 @@ namespace BorderlessMinecraft
         private static Process[] GetProcesses(List<int> processIDs, string startsWith = "")
         {
             Process[] allProcesses = Process.GetProcesses(); //gets an array of all system processes
-            List<Process> processes = new List<Process>();
-            foreach (Process proc in allProcesses)
-            {
-                if (proc.MainWindowTitle.StartsWith(startsWith) && proc.ProcessName.Contains("java") && !string.IsNullOrWhiteSpace(proc.MainWindowTitle) && !processIDs.Contains(proc.Id)) //checks the java process and non empty titles OR its handle matches
-                    processes.Add(proc);
-            }
+
+            List<Process> processes = allProcesses.Where(proc => proc.MainWindowTitle.StartsWith(startsWith) 
+                                                                 && !string.IsNullOrWhiteSpace(proc.MainWindowTitle) 
+                                                                 && !processIDs.Contains(proc.Id)).ToList();
 
             foreach (int PID in processIDs)
             {
@@ -423,6 +409,11 @@ namespace BorderlessMinecraft
                 catch (ArgumentException) { }
             }
             return processes.Distinct().ToArray(); //converts dynamic arraylist to static array
+        }
+
+        private void filterBox_TextChanged(object sender, EventArgs e)
+        {
+            AddProcesses();
         }
     }
 }
